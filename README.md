@@ -1,4 +1,3 @@
-
 # Introduction
 
 The Tupay API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
@@ -77,6 +76,17 @@ This service enables you to get callbacks if you have set your callback Url.
 * status: The status of the request
 * message: The response message
 
+# Errors
+Tupay uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Stripe's servers (these are rare).
 
+Some 4xx errors that could be handled programmatically (e.g., a card is declined) include an error code that briefly explains the error reported.
 
-© 2022, Tupay.
+    200 - OK
+    400 - Bad Request
+    401 - Unauthorized
+    402 - Request Failed
+    403 - Forbidden
+    404 - Not Found
+    409 - Conflict
+    429 - Too Many Requests
+    500, 502, 503, 504 - Server Errors
