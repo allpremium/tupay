@@ -1,3 +1,6 @@
+
+![Logo](https://allpremium.co.ke/assets/img/clients/logo-1.png)
+
 API Documentation
 
 Getting started
