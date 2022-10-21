@@ -35,7 +35,7 @@ All API requests must be made over HTTPS. Calls made over plain HTTP will fail. 
      --url https://{domain}:{port}/v1/token 
      --header 'Authorization: Basic {base64(key:secret)}'
 
-200 Success Response Schema
+Response Schema
 
 * access_token: The token that will be required to access other services
 * expiry: Expiry in milliseconds
@@ -53,7 +53,7 @@ This service enables you to disburse airtime.
  * phone (mandatory): The recipient phone number
  * amount (mandatory): The amount required
      
-200 Success Response Schema
+Response Schema
 
 * status: The status of the request
 * message: The response message
@@ -67,7 +67,7 @@ This is an object representing your balance. You can retrieve it to see the bala
      --url https://{domain}:{port}/v1/b2b/balance 
      --header 'Authorization: Bearer {Token}'
      
-200 Success Response Schema
+Response Schema
 
 * status: The status of the request
 * balance: The balance
@@ -75,7 +75,7 @@ This is an object representing your balance. You can retrieve it to see the bala
 # Callback
 This service enables you to get callbacks if you have set your callback Url.
 
-200 Success Response Schema
+Response Schema
 
 * status: The status of the request
 * message: The response message
