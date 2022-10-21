@@ -45,14 +45,13 @@ All API requests must be made over HTTPS. Calls made over plain HTTP will fail. 
 
 This service enables you to disburse airtime.
 
-Parameters
-
-* phone (mandatory): The recipient phone number
-* amount (mandatory): The amount required
-
     curl --request POST
      --url https://{domain}:{port}/v1/b2b/airtime 
-     --header 'Authorization: Bearer {Token}'
+     --header 'Authorization: Bearer {Token}'     
+ Parameters
+ 
+ * phone (mandatory): The recipient phone number
+ * amount (mandatory): The amount required
      
 200 Success Response Schema
 
@@ -95,3 +94,4 @@ Some 4xx errors that could be handled programmatically (e.g., a card is declined
     409 - Conflict
     429 - Too Many Requests
     500, 502, 503, 504 - Server Errors
+
