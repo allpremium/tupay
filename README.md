@@ -19,7 +19,7 @@ If you would like to go into a full -blown test environment, head on over [here]
  4. Consume the API
 
 # Authorization
-<b style="color: #f4b800">POST</b>: https://{domain}:{port}/v1/token
+<b style="color: #f4b800">POST</b><b>: /v1/token</b>
 
 The API uses API keys to authenticate requests. You can view and manage your API keys in the Tupay Dashboard.
 
@@ -41,9 +41,14 @@ All API requests must be made over HTTPS. Calls made over plain HTTP will fail. 
 * expiry: Expiry in milliseconds
 
 # Airtime
-<b style="color: #f4b800">POST</b>: https://{domain}:{port}/v1/b2b/airtime
+<b style="color: #f4b800">POST</b><b>: /v1/b2b/airtime</b>
 
-This service enables you to distribute airtime.
+This service enables you to disburse airtime.
+
+Parameters
+
+* phone (mandatory): The recipient phone number
+* amount (mandatory): The amount required
 
     curl --request POST
      --url https://{domain}:{port}/v1/b2b/airtime 
@@ -55,11 +60,11 @@ This service enables you to distribute airtime.
 * message: The response message
 
 # Balance
-<b style="color: #f4b800">POST</b>: https://{domain}:{port}/v1/b2b/balance
+<b style="color: #f4b800">GET</b><b>: /v1/b2b/balance</b>
 
-This service enables you to check your balance.
+This is an object representing your balance. You can retrieve it to see the balance currently on your account.
 
-    curl --request POST
+    curl --request GET
      --url https://{domain}:{port}/v1/b2b/balance 
      --header 'Authorization: Bearer {Token}'
      
