@@ -1,5 +1,5 @@
 
-![Logo](https://allpremium.co.ke/assets/img/clients/logo-1.png)
+![Logo](https://allpremium.co.ke/assets/img/clients/logo-2.png)
 
 API Documentation
 
