@@ -64,7 +64,7 @@ A callback url is required so as to receive the final status of the order.<br>
      --url https://{domain}:{port}/v1/b2b/order/{service}
      --header 'Authorization: Bearer {Token}'
 
-    Services:
+    Services
     * airtime (Safaricom, Airtel, Telkom, Equitel, JTL)
     * water (Nairobi Water)
     * dstv
