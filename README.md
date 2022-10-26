@@ -55,16 +55,16 @@ Response Schema
 # Order
 <b style="color: #f4b800">POST</b><b>: /v1/b2b/order/{service}</b>
 
-This service enables you to place an order.<br>
-The request will check for the balance in your account.<br>
-If successful, the response will show that the request is in process. <br>
-A callback url is required so as to receive the final status of the order.<br>
+This is an object for you to place an order for services offered by Tupay.
+The request for an order will first check if there is sufficient balance in your account and if successful, an order will be placed. 
+The response will show that the request is in process. A callback url is required so as to receive the final status of the order. 
+You could also check the status of the transaction using the status object.
 
     curl --request POST
      --url https://{domain}:{port}/v1/b2b/order/{service}
      --header 'Authorization: Bearer {Token}'
 
-    Services
+    Services:
     * airtime (Safaricom, Airtel, Telkom, Equitel, JTL)
     * water (Nairobi Water)
     * dstv
@@ -77,8 +77,26 @@ A callback url is required so as to receive the final status of the order.<br>
 
 Response Schema
 
+* id: The transaction id
 * status: The status of the request
 * message: The response message
+
+# Status
+<b style="color: #f4b800">GET</b><b>: /v1/b2b/status</b>
+
+This is an object for checking the status of a transaction. You will need to save the transaction id from the order response so as to check it's status with this object if needed.
+
+    curl --request GET
+     --url https://{domain}:{port}/v1/b2b/status
+     --header 'Authorization: Bearer {Token}'
+Parameters
+ 
+  * id (mandatory): The transaction id
+
+Response Schema
+
+* status: The status of the request
+* balance: The balance
 
 # Callback
 This service enables you to get callbacks if you have set your callback Url.
@@ -89,7 +107,9 @@ Response Schema
 * message: The response message
 
 # Errors
-Tupay uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Tupay's servers (these are rare).
+Tupay uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Stripe's servers (these are rare).
+
+Some 4xx errors that could be handled programmatically (e.g., a card is declined) include an error code that briefly explains the error reported.
 
     200 - OK
     400 - Bad Request
@@ -100,4 +120,3 @@ Tupay uses conventional HTTP response codes to indicate the success or failure o
     409 - Conflict
     429 - Too Many Requests
     500, 502, 503, 504 - Server Errors
-    
