@@ -56,8 +56,8 @@ Response Schema
 <b style="color: #f4b800">POST</b><b>: /v1/b2b/order/{service}</b>
 
 This is an object for you to place an order for services offered by Tupay.
-The request for an order will first check if there is sufficient balance in your account and if successful, an order will be placed. 
-The response will show that the request is in process. A callback url is required so as to receive the final status of the order. 
+The request for an order will first check if there is sufficient balance in your account and if successful, an order will be placed.
+The response will show that the request is in process. A callback url is required so as to receive the final status of the order.
 You could also check the status of the transaction using the status object.
 
     curl --request POST
@@ -90,7 +90,7 @@ This is an object for checking the status of a transaction. You will need to sav
      --url https://{domain}:{port}/v1/b2b/status
      --header 'Authorization: Bearer {Token}'
 Parameters
- 
+
   * id (mandatory): The transaction id
 
 Response Schema
@@ -107,9 +107,7 @@ Response Schema
 * message: The response message
 
 # Errors
-Tupay uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Stripe's servers (these are rare).
-
-Some 4xx errors that could be handled programmatically (e.g., a card is declined) include an error code that briefly explains the error reported.
+Tupay uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Tupay's servers (these are rare).
 
     200 - OK
     400 - Bad Request
