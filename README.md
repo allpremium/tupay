@@ -25,7 +25,7 @@ The API uses API keys to authenticate requests. You can view and manage your API
 
 Your API keys carry many privileges, so be sure to keep them secure! Do not share your secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.
 
-Authentication to the API is performed via HTTP Basic Auth. Your API Key is your password. Provide a base64 encoded username:password as the basic auth value.
+Authentication to the API is performed via HTTP Basic Auth. Your Account Id is your username & API Key is your password. Provide a base64 encoded username:password as the basic auth value.
 
 All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
@@ -44,7 +44,7 @@ This is an object representing your balance. You can retrieve it to see the bala
 
     curl --request GET
      --url https://{domain}:{port}/v1/b2b/balance
-     --header 'Authorization: Bearer {Token}'
+     --header 'Authorization: Bearer {token}'
 Response Schema
 
 * status: The status of the request
@@ -67,8 +67,8 @@ You could also check the status of the transaction using the status object.
 
     curl --request POST
      --url https://{domain}:{port}/v1/b2b/order/{service}
-     --header 'Authorization: Bearer {Token}'
-     -d '"{"account": "{Account}", "amount": {Amount}}"'
+     --header 'Authorization: Bearer {token}'
+     -d '"{"account": "{account}", "amount": {amount}}"'
  Parameters
 
  * account (String): The account e.g phone number
@@ -87,8 +87,8 @@ This is an object for checking the status of a transaction. You will need to sav
 
     curl --request GET
      --url https://{domain}:{port}/v1/b2b/status
-     --header 'Authorization: Bearer {Token}'
-     -d '"{"id": "{Id}"}"'
+     --header 'Authorization: Bearer {token}'
+     -d '"{"id": "{id}"}"'
 Parameters
 
   * id (String): The transaction id
