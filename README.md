@@ -68,7 +68,7 @@ You could also check the status of the transaction using the status object.
     curl --request POST
      --url https://{domain}:{port}/v1/b2b/order/{service}
      --header 'Authorization: Bearer {Token}'
-     -d '"{"account": {Account}, "amount": {Amount}}"'
+     -d '"{"account": "{Account}", "amount": {Amount}}"'
  Parameters
 
  * account (String): The account e.g phone number
@@ -88,7 +88,7 @@ This is an object for checking the status of a transaction. You will need to sav
     curl --request GET
      --url https://{domain}:{port}/v1/b2b/status
      --header 'Authorization: Bearer {Token}'
-     -d '"{"id": {Id}}"'
+     -d '"{"id": "{Id}"}"'
 Parameters
 
   * id (String): The transaction id
