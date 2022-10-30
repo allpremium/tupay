@@ -32,7 +32,6 @@ All API requests must be made over HTTPS. Calls made over plain HTTP will fail. 
     curl --request POST
      --url https://{domain}:{port}/v1/token
      --header 'Authorization: Basic {base64(username:password)}'
-
 Response Schema
 
 * access_token: The token that will be required to access other services
@@ -46,7 +45,6 @@ This is an object representing your balance. You can retrieve it to see the bala
     curl --request GET
      --url https://{domain}:{port}/v1/b2b/balance
      --header 'Authorization: Bearer {Token}'
-
 Response Schema
 
 * status: The status of the request
@@ -66,14 +64,15 @@ You could also check the status of the transaction using the status object.
     * dstv
     * gotv
     * zuku
-    
+
     curl --request POST
      --url https://{domain}:{port}/v1/b2b/order/{service}
      --header 'Authorization: Bearer {Token}'
+     -d '"{"account": {Account}, "amount": {Amount}}"'
  Parameters
 
- * account (mandatory): The account e.g phone number
- * amount (mandatory): The amount required
+ * account (String): The account e.g phone number
+ * amount (Double): The amount required
 
 Response Schema
 
@@ -89,9 +88,10 @@ This is an object for checking the status of a transaction. You will need to sav
     curl --request GET
      --url https://{domain}:{port}/v1/b2b/status
      --header 'Authorization: Bearer {Token}'
+     -d '"{"id": {Id}}"'
 Parameters
 
-  * id (mandatory): The transaction id
+  * id (String): The transaction id
 
 Response Schema
 
