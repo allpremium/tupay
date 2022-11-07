@@ -95,7 +95,7 @@ Parameters
 Response Schema
 
 * status: The status of the request
-* balance: The balance
+* message: The response message
 
 # Callback
 This service enables you to get callbacks if you have set your callback Url.
