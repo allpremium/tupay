@@ -81,14 +81,13 @@ Response Schema
 * message: The response message
 
 # Status
-<b style="color: #f4b800">GET</b><b>: /v1/b2b/status</b>
+<b style="color: #f4b800">GET</b><b>: /v1/b2b/status{id}</b>
 
 This is an object for checking the status of a transaction. You will need to save the transaction id from the order response so as to check it's status with this object if needed.
 
     curl --request GET
-     --url https://{domain}:{port}/v1/b2b/status
+     --url https://{domain}:{port}/v1/b2b/status/{id}
      --header 'Authorization: Bearer {token}'
-     -d '"{"id": "{id}"}"'
 Parameters
 
   * id (String): The transaction id
