@@ -11,7 +11,7 @@ Use this page to start your journey towards build amazing applications. You can 
 ## Getting started
 
 You can get started immediately with the APIs here to test them out.
-If you would like to go into a full-blown test environment, head on over [here](https://business.tupay.app) to create your account.
+If you would like to go into a full-blown test environment, head on over [here](https://business.tupay.style) to create your account.
 
  1. Get a business account with Tupay
  3. Set up a Callback Url
