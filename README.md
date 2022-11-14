@@ -49,6 +49,7 @@ Response Schema
 
 * status: The status of the request
 * balance: The balance
+* currency: The currency code
 
 # Order
 <b style="color: #f4b800">POST</b><b>: /v1/b2b/order/{service}</b>
