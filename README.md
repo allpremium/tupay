@@ -11,7 +11,7 @@ Use this page to start your journey towards build amazing applications. You can 
 ## Getting started
 
 You can get started immediately with the APIs here to test them out.
-If you would like to go into a full-blown test environment, head on over [here](https://business.tupay.style) to create your account.
+If you would like to go into a full-blown test environment, head on over [here](https://sandbox.tupay.style) to create your account.
 
  1. Get a business account with Tupay
  3. Set up a Callback Url
@@ -19,7 +19,7 @@ If you would like to go into a full-blown test environment, head on over [here](
  4. Consume the API
 
 # Authorization
-<b style="color: #f4b800">POST</b><b>: /v1/token</b>
+<b style="color: #f4b800">POST</b><b>: /v1/b2b/token</b>
 
 The API uses API keys to authenticate requests. You can view and manage your API keys in the Tupay Dashboard.
 
@@ -30,7 +30,7 @@ Authentication to the API is performed via HTTP Basic Auth. Your Account Id is y
 All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
     curl --request POST
-     --url https://{domain}:{port}/v1/token
+     --url https://{domain}:{port}/v1/b2b/token
      --header 'Authorization: Basic {base64(username:password)}'
 Response Schema
 
