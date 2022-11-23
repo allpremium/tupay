@@ -52,7 +52,7 @@ Response Schema
 * currency: The currency code
 
 # Order
-<b style="color: #f4b800">POST</b><b>: /v1/b2b/order</b>
+<b style="color: #f4b800">POST</b><b>: /v1/b2b/order/{service}</b>
 
 This is an object for you to place an order for services offered by Tupay.
 The request for an order will first check if there is sufficient balance in your account and if successful, an order will be placed.
