@@ -52,7 +52,7 @@ Response Schema
 * currency: The currency code
 
 # Order
-<b style="color: #f4b800">POST</b><b>: /v1/b2b/order/{service}</b>
+<b style="color: #f4b800">POST</b><b>: /v1/b2b/order</b>
 
 This is an object for you to place an order for services offered by Tupay.
 The request for an order will first check if there is sufficient balance in your account and if successful, an order will be placed.
@@ -74,6 +74,8 @@ You could also check the status of the transaction using the status object.
 
  * account (String): The account e.g phone number
  * amount (Double): The amount required
+ * currency (String): The currency code
+ * reference (String): Your reference
 
 Response Schema
 
@@ -91,7 +93,7 @@ This is an object for checking the status of a transaction. You will need to sav
      --header 'Authorization: Bearer {token}'
 Parameters
 
-  * id (String): The transaction id
+  * id (String): The transaction id or reference
 
 Response Schema
 
@@ -106,6 +108,8 @@ Response Schema
 * id: The transaction id
 * status: The status of the request
 * message: The response message
+* reference: Your reference
+* balance: The account's balance
 
 # Errors
 Tupay uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Tupay's servers (these are rare).
