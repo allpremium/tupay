@@ -84,7 +84,7 @@ Response Schema
 * message: The response message
 
 # Status
-<b style="color: #f4b800">GET</b><b>: /v1/b2b/status{id}</b>
+<b style="color: #f4b800">GET</b><b>: /v1/b2b/status/{id}</b>
 
 This is an object for checking the status of a transaction. You will need to save the transaction id from the order response so as to check it's status with this object if needed.
 
