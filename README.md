@@ -112,7 +112,6 @@ Response Schema
 * reference (String): Your reference
 * currency (String): The currency code
 * balance (Double): The account balance
-* comm (Double): The commission
 
 # Errors
 Tupay uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Tupay's servers (these are rare). 
@@ -126,24 +125,3 @@ Tupay uses conventional HTTP response codes to indicate the success or failure o
     409 - Conflict
     429 - Too Many Requests
     500, 502, 503, 504 - Server Errors
-
-There are also custom transactional statuses to allow you better understand the status of your transaction. These are returned in the response body once you get an HTTP 200 OK status.
-
-    4, 20 - Successful
-    0 - Pending
-    1 - Cancelled
-    2 - Failed
-    3 - Paid (Gateway or Float)
-    5 - Invalid
-    6 - Timeout
-    7 - Insufficient
-    8 - Reversed
-    9 - Refunded
-    10 - Forbidden
-    11, 120 - Rejected
-    13, 15, 16, 24 - Errors
-    17 - Duplicate
-    18 - Expired
-    19 - Inactive
-    21 - Unknown
-    100, 101 - Retrying
