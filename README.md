@@ -19,7 +19,7 @@ Go Live Checklist
  3. Fund your account
 
 # Authorization
-<b style="color: #f4b800">POST</b><b>: /v1/token</b>
+<b style="color: #f4b800">POST</b><b>: /v1/b2b/token</b>
 
 The API uses API keys to authenticate requests. You can view and manage your API keys in the Tupay Dashboard.
 
