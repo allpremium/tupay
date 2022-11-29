@@ -13,29 +13,30 @@ Use this page to start your journey towards build amazing applications. You can 
 You can get started immediately with the APIs here to test them out.
 If you would like to go into a full-blown test environment, head on over [here](https://sandbox.tupay.style) to create your account.
 
- 1. Get a business account with Tupay
- 3. Set up a Callback Url
- 2. Create an API Key
- 4. Consume the API
+Go Live Checklist
+ 1. You are configured on production
+ 2. You have thoroughly tested the integration
+ 3. Fund your account
 
 # Authorization
-<b style="color: #f4b800">POST</b><b>: /v1/b2b/token</b>
+<b style="color: #f4b800">POST</b><b>: /v1/token</b>
 
 The API uses API keys to authenticate requests. You can view and manage your API keys in the Tupay Dashboard.
 
 Your API keys carry many privileges, so be sure to keep them secure! Do not share your secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.
 
-Authentication to the API is performed via HTTP Basic Auth. Your Account Id is your username & API Key is your password. Provide a base64 encoded username:password as the basic auth value.
+Authentication to the API is performed via HTTP Basic Auth. Your Account UUID is your username & API Key is your password. Provide a base64 encoded username:password as the basic auth value.
 
 All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
     curl --request POST
-     --url https://{domain}:{port}/v1/b2b/token
+     --url https://{domain}:{port}/v1/token
      --header 'Authorization: Basic {base64(username:password)}'
 Response Schema
 
-* access_token: The token that will be required to access other services
-* expiry: Expiry in milliseconds
+* access_token (String): The token that will be required to access other services
+* issued_at (Long): The time issued in milliseconds
+* expires_in (Integer): The expiry in seconds
 
 # Balance
 <b style="color: #f4b800">GET</b><b>: /v1/b2b/balance</b>
@@ -47,9 +48,9 @@ This is an object representing your balance. You can retrieve it to see the bala
      --header 'Authorization: Bearer {token}'
 Response Schema
 
-* status: The status of the request
-* balance: The balance
-* currency: The currency code
+* status (Integer): The status of the request
+* amount (Double): The balance
+* currency (String): The currency code
 
 # Order
 <b style="color: #f4b800">POST</b><b>: /v1/b2b/order/{service}</b>
@@ -75,13 +76,13 @@ You could also check the status of the transaction using the status object.
  * account (String): The account e.g phone number
  * amount (Double): The amount required
  * currency (String): The currency code
- * reference (String): Your reference
+ * reference (String) Your reference
 
 Response Schema
 
-* id: The transaction id
-* status: The status of the request
-* message: The response message
+* id (String): The transaction id
+* status (Integer): The status of the request
+* message (String0: The response message
 
 # Status
 <b style="color: #f4b800">GET</b><b>: /v1/b2b/status/{id}</b>
@@ -97,22 +98,24 @@ Parameters
 
 Response Schema
 
-* status: The status of the request
-* message: The response message
+* status (Integer): The status of the request
+* message (String): The response message
 
 # Callback
 This service enables you to get callbacks if you have set your callback Url.
 
 Response Schema
 
-* id: The transaction id
-* status: The status of the request
-* message: The response message
-* reference: Your reference
-* balance: The account's balance
+* id (String): The transaction id
+* status (integer): The status of the request
+* message (String): The response message
+* reference (String): Your reference
+* currency (String): The currency code
+* balance (Double): The account balance
+* comm (Double): The commission
 
 # Errors
-Tupay uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Tupay's servers (these are rare).
+Tupay uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Tupay's servers (these are rare). 
 
     200 - OK
     400 - Bad Request
@@ -123,3 +126,24 @@ Tupay uses conventional HTTP response codes to indicate the success or failure o
     409 - Conflict
     429 - Too Many Requests
     500, 502, 503, 504 - Server Errors
+
+There are also custom transactional statuses to allow you better understand the status of your transaction. These are returned in the resposne body once you get an HTTP 200 OK status.
+
+    4, 20 - Successful
+    0 - Pending
+    1 - Cancelled
+    2 - Failed
+    3 - Paid (Gateway or Float)
+    5 - Invalid
+    6 - Timeout
+    7 - Insufficient
+    8 - Reversed
+    9 - Refunded
+    10 - Forbidden
+    11, 120 - Rejected
+    13, 15, 16, 24 - Errors
+    17 - Duplicate
+    18 - Expired
+    19 - Inactive
+    21 - Unknown
+    100, 101 - Retrying
