@@ -82,7 +82,7 @@ Response Schema
 
 * id (String): The transaction id
 * status (Integer): The status of the request
-* message (String0: The response message
+* message (String): The response message
 
 # Status
 <b style="color: #f4b800">GET</b><b>: /v1/b2b/status/{id}</b>
