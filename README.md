@@ -127,7 +127,7 @@ Tupay uses conventional HTTP response codes to indicate the success or failure o
     429 - Too Many Requests
     500, 502, 503, 504 - Server Errors
 
-There are also custom transactional statuses to allow you better understand the status of your transaction. These are returned in the resposne body once you get an HTTP 200 OK status.
+There are also custom transactional statuses to allow you better understand the status of your transaction. These are returned in the response body once you get an HTTP 200 OK status.
 
     4, 20 - Successful
     0 - Pending
