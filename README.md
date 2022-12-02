@@ -29,7 +29,7 @@ Your API keys carry many privileges, so be sure to keep them secure! Do not shar
 Authentication to the API is performed via HTTP Basic Auth. Your Account UUID is your username & API Key is your password. Provide a base64 encoded username:password as the basic auth value.
 
 All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
-
+    ## Authorization Request
     curl -X POST
      https://{domain}:{port}/v1/b2b/token
      -H 'Authorization: Basic {base64(username:password)}'
