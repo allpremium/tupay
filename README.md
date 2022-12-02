@@ -30,6 +30,7 @@ Authentication to the API is performed via HTTP Basic Auth. Your Account UUID is
 
 All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
     
+    <h6 style="color: #fff; background: #3c4257;">Authorization Request</h6>
     curl -X POST
      https://{domain}:{port}/v1/b2b/token
      -H 'Authorization: Basic {base64(username:password)}'
