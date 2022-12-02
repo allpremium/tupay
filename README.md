@@ -98,7 +98,7 @@ You could also check the status of the transaction using the status object.
  * account (String): The account e.g phone number
  * amount (Double): The amount required
  * currency (String): The currency code
- * reference (String) Your reference
+ * reference (String) Your unique id
 
 Response Schema
 
@@ -131,7 +131,7 @@ Response Schema
 * id (String): The transaction id
 * status (integer): The status of the request
 * message (String): The response message
-* reference (String): Your reference
+* reference (String): Your unique id
 * currency (String): The currency code
 * balance (Double): The account balance
 * comm (Double): The commission
