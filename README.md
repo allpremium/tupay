@@ -63,7 +63,6 @@ All POST requests accept idempotency keys. Sending idempotency keys in GET and D
 
 This is an object representing your balance. You can retrieve it to see the balance currently on your account.
 
- ## Balance Request
     curl -X GET
      https://{domain}:{port}/v1/b2b/balance
      -H 'Authorization: Bearer {token}'
