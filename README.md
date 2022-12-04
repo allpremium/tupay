@@ -80,19 +80,19 @@ The request for an order will first check if there is sufficient balance in your
 The response will show that the request is in process. A callback url is required so as to receive the final status of the order.
 You could also check the status of the transaction using the status object.
 
-    Services:
-    * airtime (Safaricom, Airtel, Telkom, Equitel, JTL)
-    * water (Nairobi Water)
-    * dstv
-    * gotv
-    * zuku
-
     curl -X POST \
      https://{domain}:{port}/v1/b2b/order/{service} \
      -H 'Content-Type: application/json' \
      -H 'Authorization: Bearer {token}' \
      -H 'Idempotency-Key: {key}' \
      -d '"{"account": "{account}", "amount": {amount}}"'
+ Services:
+ * airtime (Safaricom, Airtel, Telkom, Equitel, JTL)
+ * water (Nairobi Water)
+ * dstv
+ * gotv
+ * zuku
+
  Parameters
 
  * account (String): The account e.g phone number
