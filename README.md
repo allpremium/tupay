@@ -125,7 +125,7 @@ Response Schema
 * message (String): The response message
 
 # Callback
-This service enables you to get callbacks if you have set your callback Url.
+This object enables you to get callbacks if you have set your callback Url.
 
 Response Schema
 
