@@ -31,8 +31,8 @@ Authentication to the API is performed via HTTP Basic Auth. Your Account UUID is
 All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
     
     <b style="color: #f4b800">Authorization</b><b>: Request</b>
-    curl -X POST
-     https://{domain}:{port}/v1/b2b/token
+    curl -X POST \
+     https://{domain}:{port}/v1/b2b/token \
      -H 'Authorization: Basic {base64(username:password)}'
 Response Schema
 
@@ -46,8 +46,8 @@ The API supports [idempotency](https://en.wikipedia.org/wiki/Idempotence) for sa
 
 To perform an idempotent request, provide an additional Idempotency-Key: <key> header to the request.
 
-    curl -X POST
-     https://{domain}:{port}/v1/b2b/{endpoint}
+    curl -X POST \
+     https://{domain}:{port}/v1/b2b/... \
      -H 'Idempotency-Key: {key}'
 Tupay's idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.
 
@@ -64,8 +64,8 @@ All POST requests accept idempotency keys. Sending idempotency keys in GET and D
 
 This is an object representing your balance. You can retrieve it to see the balance currently on your account.
 
-    curl -X GET
-     https://{domain}:{port}/v1/b2b/balance
+    curl -X GET \
+     https://{domain}:{port}/v1/b2b/balance \
      -H 'Authorization: Bearer {token}'
 Response Schema
 
@@ -88,11 +88,11 @@ You could also check the status of the transaction using the status object.
     * gotv
     * zuku
 
-    curl -X POST
-     https://{domain}:{port}/v1/b2b/order/{service}
-     -H 'Content-Type: application/json'
-     -H 'Authorization: Bearer {token}'
-     -H 'Idempotency-Key: {key}'
+    curl -X POST \
+     https://{domain}:{port}/v1/b2b/order/{service} \
+     -H 'Content-Type: application/json' \
+     -H 'Authorization: Bearer {token}' \
+     -H 'Idempotency-Key: {key}' \
      -d '"{"account": "{account}", "amount": {amount}}"'
  Parameters
 
@@ -112,8 +112,8 @@ Response Schema
 
 This is an object for checking the status of a transaction. You will need to save the transaction id from the order response so as to check it's status with this object if needed.
 
-    curl -X GET
-     https://{domain}:{port}/v1/b2b/status/{id}
+    curl -X GET \
+     https://{domain}:{port}/v1/b2b/status/{id} \
      -H 'Authorization: Bearer {token}'
 Parameters
 
