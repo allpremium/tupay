@@ -92,6 +92,7 @@ You could also check the status of the transaction using the status object.
  * dstv
  * gotv
  * zuku
+ * startimes
 
  Parameters
 
