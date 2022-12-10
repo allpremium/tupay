@@ -1,6 +1,6 @@
 # Introduction
 
-The Tupay API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
+The Tupay API is organized around REST. Our API has predictable resource-oriented URLs, accepts form or JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
 
 You can use the API in test mode, which doesn't affect your live data or interact with merchants.
 
